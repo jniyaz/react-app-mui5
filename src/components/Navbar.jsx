@@ -31,39 +31,35 @@ const useStyles = makeStyles((theme) => ({
   search: {
     display: "flex",
     alignItems: "center",
-    borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
     "&:hover": {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
     borderRadius: theme.shape.borderRadius,
-    width: "40%",
+    width: "50%",
     [theme.breakpoints.down("sm")]: {
       display: (props) => (props.open ? "flex" : "none"),
       width: "70%",
-    },
-  },
-  cancel: {
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
     },
   },
   input: {
     color: "white",
     marginLeft: theme.spacing(1),
   },
-  searchBtn: {
+  cancel: {
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
+  },
+  searchButton: {
     marginRight: theme.spacing(2),
     [theme.breakpoints.up("sm")]: {
       display: "none",
     },
   },
   icons: {
-    display: "flex",
     alignItems: "center",
-    [theme.breakpoints.down("sm")]: {
-      display: (props) => (props.open ? "none" : "flex"),
-    },
+    display: (props) => (props.open ? "none" : "flex"),
   },
   badge: {
     marginRight: theme.spacing(2),
@@ -75,32 +71,36 @@ const Navbar = () => {
   const classes = useStyles({ open });
 
   return (
-    <AppBar>
+    <AppBar position="fixed">
       <Toolbar className={classes.toolbar}>
         <Typography variant="h6" className={classes.logoLg}>
-          NLabs Dev.
+          N-Labs Dev
         </Typography>
-        {/* for mobile */}
+        {/* mobile */}
         <Typography variant="h6" className={classes.logoSm}>
-          NLabs
+          N-Labs
         </Typography>
-        {/* end */}
+        {/* ends */}
         <div className={classes.search}>
           <Search />
-          <InputBase placeholder="Search.." className={classes.input} />
+          <InputBase placeholder="Search..." className={classes.input} />
           <Cancel className={classes.cancel} onClick={() => setOpen(false)} />
         </div>
         <div className={classes.icons}>
-          {/* for mobile */}
-          <Search className={classes.searchBtn} onClick={() => setOpen(true)} />
-          {/* end */}
+          <Search
+            className={classes.searchButton}
+            onClick={() => setOpen(true)}
+          />
           <Badge badgeContent={4} color="secondary" className={classes.badge}>
             <Mail />
           </Badge>
-          <Badge badgeContent={4} color="secondary" className={classes.badge}>
+          <Badge badgeContent={2} color="secondary" className={classes.badge}>
             <Notifications />
           </Badge>
-          <Avatar alt="Niyaz J" src="/static/images/avatar/1.jpg" />
+          <Avatar
+            alt="Remy Sharp"
+            src="https://images.pexels.com/photos/8647814/pexels-photo-8647814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+          />
         </div>
       </Toolbar>
     </AppBar>
