@@ -1,8 +1,19 @@
+import { makeStyles } from "@material-ui/core/styles";
+import Navbar from "./components/Navbar";
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    ...theme.customErrBtn,
+  },
+}));
+
 function App() {
+  const classes = useStyles();
+
   return (
-    <div>
-      <h3>Hello World</h3>
-    </div>
+    <>
+      <Navbar />
+    </>
   );
 }
 
